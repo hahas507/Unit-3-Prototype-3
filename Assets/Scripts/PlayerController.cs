@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRB;
+    private Animator playerAnimation;
 
     [SerializeField]
     private float jumpForce = 10;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerRB = GetComponent<Rigidbody>();
+        playerAnimation = GetComponent<Animator>();
         Physics.gravity *= gravityModifier;
     }
 
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
+            playerAnimation.SetTrigger("Jump_trig");
         }
     }
 
