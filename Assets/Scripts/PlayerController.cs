@@ -14,6 +14,12 @@ public class PlayerController : MonoBehaviour
     private ParticleSystem dirtParticle;
 
     [SerializeField]
+    private AudioClip jumpSound;
+
+    [SerializeField]
+    private AudioClip crashSound;
+
+    [SerializeField]
     private float jumpForce = 10;
 
     [SerializeField]
