@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnimation;
 
     [SerializeField]
+    private ParticleSystem explosionParticle;
+
+    [SerializeField]
     private float jumpForce = 10;
 
     [SerializeField]
@@ -46,6 +49,8 @@ public class PlayerController : MonoBehaviour
 
             playerAnimation.SetBool("Death_b", true);
             playerAnimation.SetInteger("DeathType_int", 1);
+
+            explosionParticle.Play();
         }
     }
 }
