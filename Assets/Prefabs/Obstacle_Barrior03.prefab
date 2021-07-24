@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1582052840262849551}
   - component: {fileID: 1261103814872701122}
   m_Layer: 0
-  m_Name: Prop_Barrier03
+  m_Name: Obstacle_Barrior03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,3 +154,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8247ef2aa249746b4ec338bbd6c258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 15
