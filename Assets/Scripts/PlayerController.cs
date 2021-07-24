@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float gravityModifier;
 
     private bool isOnGround = true;
-    private bool gameOver;
+    public bool gameOver;
 
     private void Start()
     {
