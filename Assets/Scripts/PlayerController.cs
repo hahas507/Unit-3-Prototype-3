@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float gravityModifier;
 
+    private bool isOnGround = true;
+
     private void Start()
     {
         playerRB = GetComponent<Rigidbody>();
@@ -20,9 +22,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isOnGround = false;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isOnGround = true;
     }
 }
