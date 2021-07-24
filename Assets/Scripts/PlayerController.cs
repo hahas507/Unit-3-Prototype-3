@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRB;
     private Animator playerAnimation;
+    private AudioSource playerAudio;
 
     [SerializeField]
     private ParticleSystem explosionParticle;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         playerRB = GetComponent<Rigidbody>();
         playerAnimation = GetComponent<Animator>();
         Physics.gravity *= gravityModifier;
+        playerAudio = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -44,6 +46,8 @@ public class PlayerController : MonoBehaviour
             playerAnimation.SetTrigger("Jump_trig");
 
             dirtParticle.Stop();
+
+            playerAudio.PlayOneShot(jumpSound);
         }
     }
 
@@ -64,6 +68,8 @@ public class PlayerController : MonoBehaviour
 
             explosionParticle.Play();
             dirtParticle.Stop();
+
+            playerAudio.PlayOneShot(crashSound, 1.0f);
         }
     }
 }
