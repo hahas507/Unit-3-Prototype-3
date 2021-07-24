@@ -19,6 +19,7 @@ public class PlayerControllerX : MonoBehaviour
     public ParticleSystem fireworksParticle;
 
     private AudioSource playerAudio;
+    public AudioClip jumpSound;
     public AudioClip moneySound;
     public AudioClip explodeSound;
 
@@ -41,6 +42,8 @@ public class PlayerControllerX : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && !gameOver && transform.position.y < screenBorder)
         {
             playerRb.AddForce(Vector3.up * floatForce, ForceMode.Impulse);
+
+            playerAudio.PlayOneShot(jumpSound);
         }
 
         if (transform.position.y >= screenBorder)
@@ -67,6 +70,10 @@ public class PlayerControllerX : MonoBehaviour
             fireworksParticle.Play();
             playerAudio.PlayOneShot(moneySound, 1.0f);
             Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Ground"))
+        {
+            playerRb.velocity = new Vector3(0, 10, 0);
         }
     }
 }
