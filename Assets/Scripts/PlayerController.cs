@@ -9,10 +9,13 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerRB = GetComponent<Rigidbody>();
-        playerRB.AddForce(Vector3.up * 1000);
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            playerRB.AddForce(Vector3.up * 10, ForceMode.Impulse);
+        }
     }
 }
